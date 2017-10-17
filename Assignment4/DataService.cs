@@ -8,7 +8,16 @@ namespace Assignment4
     {
         public Category GetCategory(int catId)
         {
-            return new Category();
+            using (var db = new NorthwindContext())
+            {
+                List<Category> Categories = (List<Category>)db.Categories.Where(x => x.Id == catId);
+                if (Categories.Any())
+                {
+                    return Categories[0];
+                }
+            }
+
+            return null;
         }
 
         public Product GetProduct(int catId)
@@ -22,7 +31,7 @@ namespace Assignment4
         }
 
         public List<Order> GetOrders()
-        { 
+        {
             return new List<Order>();
         }
 
