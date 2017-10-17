@@ -6,6 +6,8 @@ namespace Assignment4
 {
     public class DataService
     {
+
+        // --- GetCategory_ValidId_ReturnsCategoryObject() --- //
         public Category GetCategory(int catId)
         {
             using (var db = new NorthwindContext())
@@ -16,13 +18,21 @@ namespace Assignment4
                     return Categories[0];
                 }
             }
-
             return null;
         }
 
-        public Product GetProduct(int catId)
+        // --- GetProduct_ValidId_ReturnsProductWithCategory() --- //
+        public Product GetProduct(int prodId)
         {
-            return new Product();
+            using (var db = new NorthwindContext())
+            {
+                List<Product> Products = (List<Product>)db.Products.Where(x => x.Id == prodId);
+                if (Products.Any())
+                {
+                    return Products[0];
+                }
+            }
+            return null;
         }
 
         public Order GetOrder(int catId)

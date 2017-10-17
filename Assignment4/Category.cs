@@ -8,6 +8,7 @@ namespace Assignment4
     public class Category
     {
         [Column("categoryid")]
+
         public int Id { get; set; }
 
         public string Name { get; set; }
