@@ -15,6 +15,7 @@ namespace Assignment4
 
         public double UnitPrice { get; set; }
 
+        [Column("quantityunit")]
         public string QuantityPerUnit { get; set; }
 
         public int UnitsInStock { get; set; }

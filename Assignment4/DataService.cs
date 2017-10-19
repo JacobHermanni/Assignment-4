@@ -1,25 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Assignment4
 {
     public class DataService
     {
-        
-        // --- GetCategory_ValidId_ReturnsCategoryObject() --- //
-        public Category GetCategory(int catId)
-        {
-            using (var db = new NorthwindContext())
-            {
-                List<Category> Categories = (List<Category>)db.Categories.Where(x => x.Id == catId);
-                if (Categories.Any())
-                {
-                    return Categories[0];
-                }
-            }
-            return null;
-        }
 
         // --- GetProduct_ValidId_ReturnsProductWithCategory() --- //
         public Product GetProduct(int prodId)
@@ -64,8 +51,7 @@ namespace Assignment4
                 {
                     return matchingProducts.ToList();
                 }
-            }
-            // return list of tuples even if null. Null should be checked 
+            } 
             return null;
         }
 
@@ -82,24 +68,54 @@ namespace Assignment4
         // --- public void GetOrders() --- //
         public List<Order> GetOrders()
         {
-            var db = new NorthwindContext();
-            List<Order> Orders = db.Orders.ToList();
-            Console.WriteLine(Orders);
-            return Orders;
+            using (var db = new NorthwindContext())
+            {
+                var orders = db.Orders.ToList();
+
+                return orders;
+            }
         }
 
-        public OrderDetails GetOrderDetailsByOrderId(int orderId)
+        public List<OrderDetails> GetOrderDetailsByOrderId(int orderId)
         {
-            return new OrderDetails();
+            using (var db = new NorthwindContext())
+            {
+                List<OrderDetails> OrderDetails = (List<OrderDetails>)db.OrderDetails.Where(x => x.OrderId == orderId).ToList();
+                if (OrderDetails.Any())
+                {
+                    return OrderDetails;
+                }
+            }
+            return null;
         }
 
-        public OrderDetails GetOrderDetailsByProductId(int productId)
+        public List<OrderDetails> GetOrderDetailsByProductId(int productId)
         {
-            return new OrderDetails();
+            using (var db = new NorthwindContext())
+            {
+                List<OrderDetails> OrderDetails = (List<OrderDetails>)db.OrderDetails.Where(x => x.ProductId == productId).ToList();
+                if (OrderDetails.Any())
+                {
+                    return OrderDetails;
+                }
+            }
+            return null;
         }
 
 
-
+        // --- GetCategory_ValidId_ReturnsCategoryObject() --- //
+        public Category GetCategory(int catId)
+        {
+            using (var db = new NorthwindContext())
+            {
+                List<Category> Categories = (List<Category>)db.Categories.Where(x => x.Id == catId).ToList();
+                if (Categories.Any())
+                {
+                    return Categories[0];
+                }
+            }
+            return null;
+        }
 
         //måske problem med return
         public List<Category> GetCategories()
@@ -110,7 +126,6 @@ namespace Assignment4
 
                 return categories.ToList();
             }
-            return null;
         }
 
 
@@ -148,9 +163,10 @@ namespace Assignment4
                 {
                     category.Name = name;
                     category.Description = description;
+                    db.SaveChanges();
                     return true;
                 }
-                db.SaveChanges();
+                
 
             }
 
@@ -167,9 +183,10 @@ namespace Assignment4
                 if (category != null)
                 {
                     db.Categories.Remove(category);
+                    db.SaveChanges();
                     return true;
                 }
-                db.SaveChanges();
+
             }
 
             return false;

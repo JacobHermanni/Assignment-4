@@ -19,7 +19,8 @@ namespace Assignment4
             optionsBuilder.UseMySql(
                 "server=localhost;" +
                 "database=northwind;" +
-                "uid=root;"
+                "uid=root;" +
+                "pwd=root;"
             );
 
         }

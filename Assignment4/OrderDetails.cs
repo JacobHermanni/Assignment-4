@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Data.SqlTypes;
@@ -8,8 +9,7 @@ namespace Assignment4
 {
     public class OrderDetails
     {
-        [Column("orderid")]
-
+       [Key]
         public int OrderId { get; set; }
 
         public int Quantity { get; set; }
@@ -20,15 +20,30 @@ namespace Assignment4
 
         public double UnitPrice { get; set; }
 
-        public Order Order { get; set; }
-
-        public Product Product { get; set; }
-
-        public int Count { get; set; }
-    
-        public OrderDetails First()
+        public Order Order
         {
-            return new OrderDetails();
+            get
+            {
+                var dataService = new DataService();
+
+                var order = dataService.GetOrder(OrderId);
+
+                return order;
+            }
+            set { Order = value; }
+        }
+
+        public Product Product
+        {
+            get
+            {
+                var dataService = new DataService();
+
+                var product = dataService.GetProduct(ProductId);
+
+                return product;
+            }
+            set { Product = value; }
         }
     
     }
