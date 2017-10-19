@@ -7743,31 +7743,40 @@
     ]
   },
   "packageFolders": {
-    "/Users/Kontoen/.nuget/packages/": {}
+    "C:\\Users\\hijak\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "/Users/Kontoen/Projects/JacobHermanni/Assignment-4.git/Assignment4.Tests/Assignment4.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4.Tests\\Assignment4.Tests.csproj",
       "projectName": "Assignment4.Tests",
-      "projectPath": "/Users/Kontoen/Projects/JacobHermanni/Assignment-4.git/Assignment4.Tests/Assignment4.Tests.csproj",
-      "packagesPath": "/Users/Kontoen/.nuget/packages/",
-      "outputPath": "/Users/Kontoen/Projects/JacobHermanni/Assignment-4.git/Assignment4.Tests/obj",
+      "projectPath": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4.Tests\\Assignment4.Tests.csproj",
+      "packagesPath": "C:\\Users\\hijak\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4.Tests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/Users/Kontoen/.config/NuGet/NuGet.Config"
+        "C:\\Users\\hijak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/Users/Kontoen/Projects/JacobHermanni/Assignment-4.git/Assignment4/Assignment4.csproj": {
-              "projectPath": "/Users/Kontoen/Projects/JacobHermanni/Assignment-4.git/Assignment4/Assignment4.csproj"
+            "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4\\Assignment4.csproj": {
+              "projectPath": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4\\Assignment4.csproj"
             }
           }
         }
@@ -7781,23 +7790,22 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "xunit.runner.visualstudio": {
+            "target": "Package",
+            "version": "2.2.0"
+          },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true
-          },
-          "Microsoft.NET.Test.Sdk": {
-            "target": "Package",
-            "version": "15.3.0-preview-20170628-02"
           },
           "xunit": {
             "target": "Package",
             "version": "2.2.0"
           },
-          "xunit.runner.visualstudio": {
+          "Microsoft.NET.Test.Sdk": {
             "target": "Package",
-            "version": "2.2.0"
+            "version": "15.3.0-preview-20170628-02"
           }
         },
         "imports": [
