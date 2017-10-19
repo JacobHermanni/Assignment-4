@@ -1770,6 +1770,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "Assignment4/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Pomelo.EntityFrameworkCore.MySql": "2.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Assignment4.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Assignment4.dll": {}
+        }
       }
     }
   },
@@ -5944,12 +5957,17 @@
         "system.xml.xdocument.4.0.11.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "Assignment4/1.0.0": {
+      "type": "project",
+      "path": "../Assignment4/Assignment4.csproj",
+      "msbuildProject": "../Assignment4/Assignment4.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
-      "Microsoft.NETCore.App >= 2.0.0",
-      "Pomelo.EntityFrameworkCore.MySql >= 2.0.0"
+      "Assignment4 >= 1.0.0",
+      "Microsoft.NETCore.App >= 2.0.0"
     ]
   },
   "packageFolders": {
@@ -5962,11 +5980,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4\\Assignment4.csproj",
-      "projectName": "Assignment4",
-      "projectPath": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4\\Assignment4.csproj",
+      "projectUniqueName": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\ConsoleTester\\ConsoleTester.csproj",
+      "projectName": "ConsoleTester",
+      "projectPath": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\ConsoleTester\\ConsoleTester.csproj",
       "packagesPath": "C:\\Users\\hijak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4\\obj\\",
+      "outputPath": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\ConsoleTester\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5984,7 +6002,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4\\Assignment4.csproj": {
+              "projectPath": "C:\\Users\\hijak\\Source\\Repos\\Assignment-4\\Assignment4\\Assignment4.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -5996,12 +6018,7 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Pomelo.EntityFrameworkCore.MySql": {
-            "target": "Package",
-            "version": "2.0.0"
-          },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true

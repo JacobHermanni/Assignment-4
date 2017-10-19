@@ -36,3 +36,9 @@ C:/Users/hijak/Source/Repos/Assignment-4/Assignment4.Tests/obj/Debug/netcoreapp2
 /Users/Kontoen/Projects/JacobHermanni/Assignment-4.git/Assignment4.Tests/obj/Debug/netcoreapp2.0/Assignment4.Tests.AssemblyInfo.cs
 /Users/Kontoen/Projects/JacobHermanni/Assignment-4.git/Assignment4.Tests/obj/Debug/netcoreapp2.0/Assignment4.Tests.dll
 /Users/Kontoen/Projects/JacobHermanni/Assignment-4.git/Assignment4.Tests/obj/Debug/netcoreapp2.0/Assignment4.Tests.pdb
+C:\Users\hijak\Source\Repos\Assignment-4\Assignment4.Tests\obj\Debug\netcoreapp2.0\Assignment4.Tests.csprojResolveAssemblyReference.cache
+C:\Users\hijak\Source\Repos\Assignment-4\Assignment4.Tests\obj\Debug\netcoreapp2.0\Assignment4.Tests.csproj.CoreCompileInputs.cache
+C:\Users\hijak\Source\Repos\Assignment-4\Assignment4.Tests\obj\Debug\netcoreapp2.0\Assignment4.Tests.AssemblyInfoInputs.cache
+C:\Users\hijak\Source\Repos\Assignment-4\Assignment4.Tests\obj\Debug\netcoreapp2.0\Assignment4.Tests.AssemblyInfo.cs
+C:\Users\hijak\Source\Repos\Assignment-4\Assignment4.Tests\obj\Debug\netcoreapp2.0\Assignment4.Tests.dll
+C:\Users\hijak\Source\Repos\Assignment-4\Assignment4.Tests\obj\Debug\netcoreapp2.0\Assignment4.Tests.pdb

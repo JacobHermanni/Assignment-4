@@ -15,10 +15,24 @@ namespace Assignment4
 
         public double UnitPrice { get; set; }
 
+        [Column("QuantityUnit")]
         public string QuantityPerUnit { get; set; }
 
         public int UnitsInStock { get; set; }
 
-        public Category Category { get; set; }
+        public int CategoryId { get; set; }
+
+        public Category Category
+        {
+            get
+            {
+                var dataService = new DataService();
+
+                var category = dataService.GetCategory(CategoryId);
+
+                return category;
+            }
+            set { Category = value; }
+        }
     }
 }
