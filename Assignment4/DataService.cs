@@ -35,26 +35,33 @@ namespace Assignment4
             return null;
         }
 
-        public Order GetOrder(int catId)
+
+        // --- public void GetOrder_ValidId_ReturnsCompleteOrder() --- //
+        public Order GetOrder(int orderId)
         {
-            return new Order();
+            var db = new NorthwindContext();
+            var test = db.Orders.FirstOrDefault(
+                x => x.Id == orderId);
+            return test;
         }
 
+        // --- public void GetOrders() --- //
         public List<Order> GetOrders()
         {
-            return new List<Order>();
+            var db = new NorthwindContext();
+            List<Order> Orders = db.Orders.ToList();
+            return Orders;
         }
 
-        public List<OrderDetails> GetOrderDetailsByOrderId(int orderId)
+        public OrderDetails GetOrderDetailsByOrderId(int orderId)
         {
-            return new List<OrderDetails>();
+            return new OrderDetails();
         }
 
-        public List<OrderDetails> GetOrderDetailsByProductId(int productId)
+        public OrderDetails GetOrderDetailsByProductId(int productId)
         {
-            return new List<OrderDetails>();
+            return new OrderDetails();
         }
 
-        // Test Theis
     }
 }

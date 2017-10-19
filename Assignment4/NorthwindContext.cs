@@ -21,6 +21,7 @@ namespace Assignment4
                 "database=northwind;" +
                 "uid=root;"
             );
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,7 +35,11 @@ namespace Assignment4
             modelBuilder.Entity<Product>()
                 .Property(x => x.Name)
                 .HasColumnName("productname");
-            
+
+            modelBuilder.Entity<OrderDetails>()
+                .Property(x => x.OrderId)
+                .HasColumnName("orderid");
+                                   
         }
     }
 }

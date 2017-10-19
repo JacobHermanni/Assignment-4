@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Data.SqlTypes;
 
 namespace Assignment4
 {
@@ -22,5 +23,12 @@ namespace Assignment4
         public Order Order { get; set; }
 
         public Product Product { get; set; }
+    
+
+        int Count()
+        {
+            return 3;
+        }
+    
     }
 }
