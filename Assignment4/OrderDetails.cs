@@ -23,11 +23,12 @@ namespace Assignment4
         public Order Order { get; set; }
 
         public Product Product { get; set; }
-    
 
-        int Count()
+        public int Count { get; set; }
+    
+        public OrderDetails First()
         {
-            return 3;
+            return new OrderDetails();
         }
     
     }

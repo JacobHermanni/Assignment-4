@@ -6,7 +6,7 @@ namespace Assignment4
 {
     public class DataService
     {
-
+        
         // --- GetCategory_ValidId_ReturnsCategoryObject() --- //
         public Category GetCategory(int catId)
         {
@@ -35,9 +35,9 @@ namespace Assignment4
             return null;
         }
 
-        public List<ValueTuple<string, string>> GetProductBySubstring(string substring)
+        // Korrekt
+        public List<Product> GetProductByName(string substring)
         {
-            List<ValueTuple<string, string>> returnTuples = null;
             List<Product> matchingProducts = null;
 
             using (var db = new NorthwindContext())
@@ -45,20 +45,16 @@ namespace Assignment4
                 matchingProducts = db.Products.Where(x => x.Name.Contains(substring)).ToList();
                 if (matchingProducts.Any())
                 {
-                    returnTuples = new List<(string, string)>();
-                    foreach (var matchingProduct in matchingProducts)
-                    {
-                        returnTuples.Add(new ValueTuple<string, string>(matchingProduct.Name, matchingProduct.Category.Name));
-                    }
+
+                    return matchingProducts.ToList();
                 }
             }
             // return list of tuples even if null. Null should be checked 
-            return returnTuples;
+            return null;
         }
 
-        public List<ValueTuple<string, string>> GetProductsByCategoryId(int catId)
+        public List<Product> GetProductByCategory(int catId)
         {
-            List<ValueTuple<string, string>> returnTuples = null;
             List<Product> matchingProducts = null;
 
             using (var db = new NorthwindContext())
@@ -66,15 +62,11 @@ namespace Assignment4
                 matchingProducts = db.Products.Where(x => x.CategoryId == catId).ToList();
                 if (matchingProducts.Any())
                 {
-                    returnTuples = new List<(string, string)>();
-                    foreach (var matchingProduct in matchingProducts)
-                    {
-                        returnTuples.Add(new ValueTuple<string, string>(matchingProduct.Name, matchingProduct.Category.Name));
-                    }
+                    return matchingProducts.ToList();
                 }
             }
             // return list of tuples even if null. Null should be checked 
-            return returnTuples;
+            return null;
         }
 
 
@@ -92,6 +84,7 @@ namespace Assignment4
         {
             var db = new NorthwindContext();
             List<Order> Orders = db.Orders.ToList();
+            Console.WriteLine(Orders);
             return Orders;
         }
 
@@ -104,6 +97,86 @@ namespace Assignment4
         {
             return new OrderDetails();
         }
+
+
+
+
+        //måske problem med return
+        public List<Category> GetCategories()
+        {
+            using (var db = new NorthwindContext())
+            {
+                var categories = db.Categories;
+
+                return categories.ToList();
+            }
+            return null;
+        }
+
+
+
+        //Måske færdig tjek igen 
+        public Category CreateCategory(String name, String description)
+        {
+            using (var db = new NorthwindContext())
+            {
+                var category = new Category
+                {
+                    Name = name,
+                    Description = description
+                };
+
+                db.Categories.Add(category);
+
+                db.SaveChanges();
+
+                {
+                    return category;
+                }
+            }
+        }
+
+
+        //Færdig
+        public bool UpdateCategory(int id, string name, string description)
+        {
+            using (var db = new NorthwindContext())
+            {
+                var category = db.Categories.FirstOrDefault(x => x.Id == id);
+
+                if (category != null)
+                {
+                    category.Name = name;
+                    category.Description = description;
+                    return true;
+                }
+                db.SaveChanges();
+
+            }
+
+            return false;
+        }
+        //Færdig
+        public bool DeleteCategory(int id)
+        {
+
+            using (var db = new NorthwindContext())
+            {
+                var category = db.Categories.FirstOrDefault(x => x.Id == id);
+
+                if (category != null)
+                {
+                    db.Categories.Remove(category);
+                    return true;
+                }
+                db.SaveChanges();
+            }
+
+            return false;
+        }
+
+
+
 
     }
 }
