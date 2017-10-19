@@ -26,13 +26,55 @@ namespace Assignment4
         {
             using (var db = new NorthwindContext())
             {
-                List<Product> Products = (List<Product>)db.Products.Where(x => x.Id == prodId);
+                var Products = db.Products.Where(x => x.Id == prodId);
                 if (Products.Any())
                 {
-                    return Products[0];
+                    return Products.First();
                 }
             }
             return null;
+        }
+
+        public List<ValueTuple<string, string>> GetProductBySubstring(string substring)
+        {
+            List<ValueTuple<string, string>> returnTuples = null;
+            List<Product> matchingProducts = null;
+
+            using (var db = new NorthwindContext())
+            {
+                matchingProducts = db.Products.Where(x => x.Name.Contains(substring)).ToList();
+                if (matchingProducts.Any())
+                {
+                    returnTuples = new List<(string, string)>();
+                    foreach (var matchingProduct in matchingProducts)
+                    {
+                        returnTuples.Add(new ValueTuple<string, string>(matchingProduct.Name, matchingProduct.Category.Name));
+                    }
+                }
+            }
+            // return list of tuples even if null. Null should be checked 
+            return returnTuples;
+        }
+
+        public List<ValueTuple<string, string>> GetProductsByCategoryId(int catId)
+        {
+            List<ValueTuple<string, string>> returnTuples = null;
+            List<Product> matchingProducts = null;
+
+            using (var db = new NorthwindContext())
+            {
+                matchingProducts = db.Products.Where(x => x.CategoryId == catId).ToList();
+                if (matchingProducts.Any())
+                {
+                    returnTuples = new List<(string, string)>();
+                    foreach (var matchingProduct in matchingProducts)
+                    {
+                        returnTuples.Add(new ValueTuple<string, string>(matchingProduct.Name, matchingProduct.Category.Name));
+                    }
+                }
+            }
+            // return list of tuples even if null. Null should be checked 
+            return returnTuples;
         }
 
 

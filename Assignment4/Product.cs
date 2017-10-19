@@ -19,6 +19,19 @@ namespace Assignment4
 
         public int UnitsInStock { get; set; }
 
-        public Category Category { get; set; }
+        public int CategoryId { get; set; }
+
+        public Category Category
+        {
+            get
+            {
+                var dataService = new DataService();
+
+                var category = dataService.GetCategory(CategoryId);
+
+                return category;
+            }
+            set { Category = value; }
+        }
     }
 }
